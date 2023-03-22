@@ -13,6 +13,7 @@ class Movie {
     public $director;
     public $year;
     public $genre;
+    public $pegi;
 
     public function __construct (
         string $_title,
@@ -25,5 +26,19 @@ class Movie {
         $this->director = $_director;
         $this->year = $_year;
         $this->genre = $_genre;
+        $this->setPegi();
+    }
+
+    public function setPegi(){
+        $this->pegi = "all";
+        if($this->genre == "horror")  $this->pegi = "14+";
+        if($this->genre == "erotic")  $this->pegi = "18+";
+        
+
     }
 }
+
+
+$pulp_fiction = new Movie("Pulp Fiction", "Quentin Tarantino", "1994", "dramatic");
+
+var_dump($pulp_fiction);
